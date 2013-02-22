@@ -61,8 +61,9 @@ void Binder_init_globals( BinderPNTR this )
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::generateCode
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::constructorFunctionDecl
-void Construct_Binder0( BinderPNTR this, int _argc, void* _argv[] ) { 
+void Construct_Binder0( BinderPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) { 
 	Binder_init_globals( this ) ;
+	pthread_mutex_unlock( init ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 
 

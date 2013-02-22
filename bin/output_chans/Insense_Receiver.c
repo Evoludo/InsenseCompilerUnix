@@ -55,16 +55,16 @@ void behaviour_Receiver( ReceiverPNTR this ) {
 void Receiver_init_globals( ReceiverPNTR this ) 
 { 
 	this->decRef = decRef_Receiver;
-	this->input_comp=channel_create( CHAN_IN,sizeof( int  ) ,false ) ;
+	this->input_comp=channel_create( sizeof( int  )  ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::locationInitialisers
 
 } 
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::generateCode
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::constructorFunctionDecl
-void Construct_Receiver0( ReceiverPNTR this, int _argc, void* _argv[] ) { 
+void Construct_Receiver0( ReceiverPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) { 
 	Receiver_init_globals( this ) ;
-// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
+	pthread_mutex_unlock( init ) ;// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	// End of sequence
 
 	behaviour_Receiver( this ) ;

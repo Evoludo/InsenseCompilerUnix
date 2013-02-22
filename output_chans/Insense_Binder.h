@@ -23,7 +23,7 @@ struct Binder {
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printComponentFuncsDecls
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printConstructorSignatures
-extern void Construct_Binder0( BinderPNTR this, int _argc, void* _argv[] ) ;
+extern void Construct_Binder0( BinderPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) ;
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printBehaviourForwardDecl
 extern void behaviour_Binder( BinderPNTR this ) ;

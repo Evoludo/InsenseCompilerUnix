@@ -24,7 +24,7 @@ struct Receiver {
 void  Receiver_printDetails_proc( ReceiverPNTR this, jmp_buf *ex_handler, int number ) ;
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printConstructorSignatures
-extern void Construct_Receiver0( ReceiverPNTR this, int _argc, void* _argv[] ) ;
+extern void Construct_Receiver0( ReceiverPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) ;
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printBehaviourForwardDecl
 extern void behaviour_Receiver( ReceiverPNTR this ) ;

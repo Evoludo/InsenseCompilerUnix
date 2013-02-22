@@ -71,7 +71,7 @@ public class Constructor extends DeclarationContainer implements IConstructor {
 		sb.append( LRB_ );
 		sb.append( data_pntr_name(container.getName()) + "this" );
 		sb.append( COMMA + SPACE);
-		sb.append( "int _argc, void* _argv[]" );
+		sb.append( "int _argc, void* _argv[], pthread_mutex_t* init" );
 		sb.append( SPACE + RRB_ );
 		return sb.toString();
 	}
@@ -186,7 +186,7 @@ public class Constructor extends DeclarationContainer implements IConstructor {
 		
 		
 		sb.append(TAB + functionCall( containingComponent.getInitGlobalsName(), "this" ) + SEMI + NEWLINE);
-
+		sb.append(TAB + functionCall( "pthread_mutex_unlock", "init") + SEMI + NEWLINE);
 
 		
 		sb.append(generateHoistedCode());	

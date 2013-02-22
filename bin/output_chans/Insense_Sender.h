@@ -14,8 +14,8 @@ struct Sender {
 	void (*decRef)(SenderPNTR pntr);
 	bool stopped;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printStructChannelDecls
-	chan_id errchan_comp;
-	chan_id output_comp;
+	Channel_PNTR errchan_comp;
+	Channel_PNTR output_comp;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::printLocationDecls
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::locationDecls
 	int  number_comp;
@@ -24,7 +24,7 @@ struct Sender {
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printComponentFuncsDecls
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printConstructorSignatures
-extern void Construct_Sender0( SenderPNTR this, int _argc, void* _argv[] ) ;
+extern void Construct_Sender0( SenderPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) ;
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printBehaviourForwardDecl
 extern void behaviour_Sender( SenderPNTR this ) ;

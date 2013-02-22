@@ -50,7 +50,7 @@ void behaviour_Binder( BinderPNTR this ) {
 void Binder_init_globals( BinderPNTR this ) 
 { 
 	this->decRef = decRef_Binder;
-	this->errchan_comp=channel_create( CHAN_IN,sizeof( bool  ) ,false ) ;
+	this->errchan_comp=channel_create( sizeof( bool  )  ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::locationInitialisers
 	DAL_assign( &this->s_comp,component_create( Construct_Sender0, sizeof( SenderStruct ) , 24, 0, NULL )  ) ;
 	component_yield(  ) ;
@@ -61,9 +61,9 @@ void Binder_init_globals( BinderPNTR this )
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::generateCode
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::constructorFunctionDecl
-void Construct_Binder0( BinderPNTR this, int _argc, void* _argv[] ) { 
+void Construct_Binder0( BinderPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) { 
 	Binder_init_globals( this ) ;
-// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
+	pthread_mutex_unlock( init ) ;// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Connect::complete

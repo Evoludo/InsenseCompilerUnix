@@ -66,8 +66,8 @@ if( this->number_comp%10==0) { // Generated from: uk.ac.stand.cs.insense.compile
 void Sender_init_globals( SenderPNTR this ) 
 { 
 	this->decRef = decRef_Sender;
-	this->errchan_comp=channel_create( CHAN_OUT,sizeof( bool  ) ,false ) ;
-	this->output_comp=channel_create( CHAN_OUT,sizeof( int  ) ,false ) ;
+	this->errchan_comp=channel_create( sizeof( bool  )  ) ;
+	this->output_comp=channel_create( sizeof( int  )  ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::locationInitialisers
 	this->number_comp = 0;
 
@@ -75,9 +75,9 @@ void Sender_init_globals( SenderPNTR this )
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::generateCode
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::constructorFunctionDecl
-void Construct_Sender0( SenderPNTR this, int _argc, void* _argv[] ) { 
+void Construct_Sender0( SenderPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) { 
 	Sender_init_globals( this ) ;
-// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
+	pthread_mutex_unlock( init ) ;// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	// End of sequence
 
 	behaviour_Sender( this ) ;
