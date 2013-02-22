@@ -77,7 +77,8 @@ void Sender_init_globals( SenderPNTR this )
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::constructorFunctionDecl
 void Construct_Sender0( SenderPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) { 
 	Sender_init_globals( this ) ;
-	pthread_mutex_unlock( init ) ;// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
+	pthread_mutex_unlock( init ) ;
+// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	// End of sequence
 
 	behaviour_Sender( this ) ;

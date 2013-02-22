@@ -74,9 +74,9 @@ public abstract class DeclarationContainer extends Code implements ICode, IDecla
 				else {
 					sb.append( TAB + l.getSymbolTableEntry().contextualName(ISymbolTable.UNKNOWN_CONTEXT) + SPACE + EQUALS_ + l.getInitialiser() + SEMI + NEWLINE);
 				}
-				if(tr instanceof ComponentType){
+				/*if(tr instanceof ComponentType){ // don't need in unix
 					sb.append(TAB + functionCall("component_yield") + SEMI + NEWLINE);
-				}
+				}*/
 			}
 		}
 		return sb.toString();
