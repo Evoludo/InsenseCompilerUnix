@@ -55,7 +55,7 @@ void behaviour_Receiver( ReceiverPNTR this ) {
 void Receiver_init_globals( ReceiverPNTR this ) 
 { 
 	this->decRef = decRef_Receiver;
-	this->input_comp=channel_create( CHAN_IN,sizeof( int  ) ,false ) ;
+	this->input_comp=channel_create( sizeof( int  )  ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::locationInitialisers
 
 } 

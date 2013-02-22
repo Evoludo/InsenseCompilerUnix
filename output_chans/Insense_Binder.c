@@ -50,7 +50,7 @@ void behaviour_Binder( BinderPNTR this ) {
 void Binder_init_globals( BinderPNTR this ) 
 { 
 	this->decRef = decRef_Binder;
-	this->errchan_comp=channel_create( CHAN_IN,sizeof( bool  ) ,false ) ;
+	this->errchan_comp=channel_create( sizeof( bool  )  ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::locationInitialisers
 	DAL_assign( &this->s_comp,component_create( Construct_Sender0, sizeof( SenderStruct ) , 24, 0, NULL )  ) ;
 	component_yield(  ) ;

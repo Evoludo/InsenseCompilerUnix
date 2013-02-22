@@ -1,6 +1,6 @@
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::print_ifdef
-#ifndef RECEIVER_H_
-#define RECEIVER_H_
+#ifndef HELLO_H_
+#define HELLO_H_
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printImplIncludes
 #include "main.h"
@@ -8,25 +8,23 @@
 
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printStructDecl
-typedef struct Receiver *ReceiverPNTR , ReceiverStruct ;
-struct Receiver { 
+typedef struct Hello *HelloPNTR , HelloStruct ;
+struct Hello { 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printCommonDecls
-	void (*decRef)(ReceiverPNTR pntr);
+	void (*decRef)(HelloPNTR pntr);
 	bool stopped;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printStructChannelDecls
-	Channel_PNTR input_comp;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::printLocationDecls
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::locationDecls
-
+	int  count_comp;
 } ;
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printComponentFuncsDecls
-void  Receiver_printDetails_proc( ReceiverPNTR this, jmp_buf *ex_handler, int number ) ;
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printConstructorSignatures
-extern void Construct_Receiver0( ReceiverPNTR this, int _argc, void* _argv[] ) ;
+extern void Construct_Hello0( HelloPNTR this, int _argc, void* _argv[] ) ;
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printBehaviourForwardDecl
-extern void behaviour_Receiver( ReceiverPNTR this ) ;
-#endif /* RECEIVER_H_*/ 
+extern void behaviour_Hello( HelloPNTR this ) ;
+#endif /* HELLO_H_*/ 
 

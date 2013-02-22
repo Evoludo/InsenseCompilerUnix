@@ -14,8 +14,8 @@ struct Sender {
 	void (*decRef)(SenderPNTR pntr);
 	bool stopped;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printStructChannelDecls
-	chan_id errchan_comp;
-	chan_id output_comp;
+	Channel_PNTR errchan_comp;
+	Channel_PNTR output_comp;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::printLocationDecls
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::locationDecls
 	int  number_comp;

@@ -14,7 +14,7 @@ struct Binder {
 	void (*decRef)(BinderPNTR pntr);
 	bool stopped;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printStructChannelDecls
-	chan_id errchan_comp;
+	Channel_PNTR errchan_comp;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::printLocationDecls
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::locationDecls
 	SenderPNTR  s_comp;	ReceiverPNTR  r_comp;

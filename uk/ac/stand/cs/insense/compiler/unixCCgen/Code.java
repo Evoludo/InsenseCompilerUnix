@@ -95,7 +95,7 @@ public abstract class Code extends SpaceTracker implements ICode {
 	public static final String UNKNOWN_ = "unknown "; // only used in error cases
 
 	//public static final String CHANNEL_ = "Channel "; // TODO JL remove, not needed for post asynch impl
-	public static final String CHANNEL_ = "chan_id "; 
+	public static final String CHANNEL_ = "Channel_PNTR "; 
 	
 	public static final String ANYTYPEPNTR_ = "AnyTypePNTR ";
 	
@@ -414,7 +414,7 @@ public abstract class Code extends SpaceTracker implements ICode {
 			String type_size = functionCall("sizeof", insenseTypeToCTypeName(payload_type));
 			String contains_pointers = payload_type.isPointerType()?"true":"false";
 			//return functionCall( "channel_create", direction ); // TODO JL remove, not needed for post asynch impl
-			return functionCall( "channel_create", direction, type_size, contains_pointers );
+			return functionCall( "channel_create", type_size );
 		} else {
 			throw new RuntimeException("Didn't find expected channel type, found:" + type);
 		}
