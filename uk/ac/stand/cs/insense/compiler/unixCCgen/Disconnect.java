@@ -63,14 +63,7 @@ public class Disconnect extends Code implements ICode, IDisconnect {
 			}
 		}
 		
-		if(!is_inter_node_channel){
-			sb.append(TAB + "// this channel could  be connected to a remote channel, so need to call wrapper function in the runtime" + NEWLINE);
-			sb.append(TAB + "// which will potentially do remote unbinding prior to calling normal channel_unbind in InceOS" + NEWLINE);
-			sb.append(TAB + functionCall("remoteAnonymousUnbind_proc", channel_fragments.get(0).toString(), ex_handler) + SEMI + NEWLINE);
-		}
-		else { // if(is_inter_node_channel){
-			sb.append(tab(1) + functionCall("remoteUnbind_proc", channel_fragments.get(1).toString(), channel_fragments.get(0).toString(), ex_handler ) + SEMI + NEWLINE);
-		}		
+		sb.append(tab(1) + functionCall("channel_unbind", channel_fragments.get(0).toString() ) + SEMI + NEWLINE);		
 		super.append(NEWLINE + sb.toString());
 	}
 }

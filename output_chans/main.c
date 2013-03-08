@@ -28,6 +28,8 @@ int main( int argc, char **argv ) {
 	DAL_assign( &serialiserMap,Construct_StringMap(  )  ) ;
 	initializeSerializerFunctions(  ) ;
 	initDALGlobalObjects(  ) ;
+	sem_init( &can_exit,0,1 ) ;
+	num_threads=0;
 	pthread_mutex_init( &conn_op_mutex,NULL ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	BinderPNTR binder_glob = NULL;
@@ -36,6 +38,6 @@ int main( int argc, char **argv ) {
 ;
 	// End of sequence
 
-	while( true );
+	sem_wait( &can_exit  ) ;
 	component_exit(  ) ;// as the primordial is a component itself created by the boot code, must deleted to return the memory and space it uses
 }

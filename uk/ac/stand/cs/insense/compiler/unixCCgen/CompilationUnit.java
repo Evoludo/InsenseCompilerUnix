@@ -240,6 +240,9 @@ public class CompilationUnit extends ProcedureContainer implements ICode, ICompi
 //				"\tthis->process_pntr = PROCESS_CURRENT();\n"+ 	// TODO NOT NEEDED FOR INCEOS?
 //				"\tthis->data_struct.tag = GENERIC;\n" );
 		ps.println( TAB + functionCall( "initDALGlobalObjects" ) + SEMI );
+		ps.println( TAB + functionCall( "sem_init", "&can_exit", "0", "1" ) + SEMI);
+		ps.println( TAB + "num_threads" + EQUALS + ZERO + SEMI);
+		ps.println( TAB + functionCall( "pthread_mutex_init", "&conn_op_mutex", NULL) + SEMI);
 //		print_vtbl_initialisation( ps );			// TODO NOT NEEDED FOR INCEOS?
 		ps.println( super.toString() );
 		
@@ -247,7 +250,7 @@ public class CompilationUnit extends ProcedureContainer implements ICode, ICompi
 //		ps.println( TAB + "do {" );
 //		ps.println( TAB2 + "process_run();" );
 //		ps.println( TAB + "}" );
-		ps.println( TAB + "while( true );" );
+		ps.println( TAB + functionCall("sem_wait", "&can_exit ") + SEMI );
 //		ps.println( TAB + "PROCESS_END();" );	// TODO NOT NEEDED FOR INCEOS?
 		ps.println( TAB + functionCall("component_exit") + SEMI + "// as the primordial is a component itself created by the boot code, must deleted to return the memory and space it uses");
 		ps.println( "}" );

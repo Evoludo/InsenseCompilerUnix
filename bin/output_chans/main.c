@@ -28,6 +28,7 @@ int main( int argc, char **argv ) {
 	DAL_assign( &serialiserMap,Construct_StringMap(  )  ) ;
 	initializeSerializerFunctions(  ) ;
 	initDALGlobalObjects(  ) ;
+	pthread_mutex_init( &conn_op_mutex,NULL ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	BinderPNTR binder_glob = NULL;
 	DAL_assign(&binder_glob , component_create( Construct_Binder0, sizeof( BinderStruct ) , 88, 0, NULL ) );

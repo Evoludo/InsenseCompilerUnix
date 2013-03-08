@@ -414,7 +414,7 @@ public abstract class Code extends SpaceTracker implements ICode {
 			String type_size = functionCall("sizeof", insenseTypeToCTypeName(payload_type));
 			String contains_pointers = payload_type.isPointerType()?"true":"false";
 			//return functionCall( "channel_create", direction ); // TODO JL remove, not needed for post asynch impl
-			return functionCall( "channel_create", type_size );
+			return functionCall( "channel_create", type_size, direction );
 		} else {
 			throw new RuntimeException("Didn't find expected channel type, found:" + type);
 		}

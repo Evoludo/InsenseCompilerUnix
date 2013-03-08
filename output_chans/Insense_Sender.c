@@ -40,9 +40,7 @@ if( this->number_comp%10==0) { // Generated from: uk.ac.stand.cs.insense.compile
 
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Disconnect::complete
-	// this channel could  be connected to a remote channel, so need to call wrapper function in the runtime
-	// which will potentially do remote unbinding prior to calling normal channel_unbind in InceOS
-	remoteAnonymousUnbind_proc( this->output_comp,NULL ) ;
+	channel_unbind( this->output_comp ) ;
 ;
 	// Make call to send op 
 { 

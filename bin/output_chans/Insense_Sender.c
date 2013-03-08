@@ -66,8 +66,8 @@ if( this->number_comp%10==0) { // Generated from: uk.ac.stand.cs.insense.compile
 void Sender_init_globals( SenderPNTR this ) 
 { 
 	this->decRef = decRef_Sender;
-	this->errchan_comp=channel_create( sizeof( bool  )  ) ;
-	this->output_comp=channel_create( sizeof( int  )  ) ;
+	this->errchan_comp=channel_create( sizeof( bool  ) ,CHAN_OUT ) ;
+	this->output_comp=channel_create( sizeof( int  ) ,CHAN_OUT ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::locationInitialisers
 	this->number_comp = 0;
 
