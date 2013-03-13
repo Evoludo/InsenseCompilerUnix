@@ -37,13 +37,6 @@ void behaviour_Sender( SenderPNTR this ) {
 	this->number_comp = this->number_comp+1;
 if( this->number_comp%10==0) { // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	printString_proc(this, NULL, Construct_String0("S: sent another 10 values ... disconnecting\n") ) ;
-
-
-// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Disconnect::complete
-	// this channel could  be connected to a remote channel, so need to call wrapper function in the runtime
-	// which will potentially do remote unbinding prior to calling normal channel_unbind in InceOS
-	remoteAnonymousUnbind_proc( this->output_comp,NULL ) ;
-;
 	// Make call to send op 
 { 
 	bool  _lvalue= true;

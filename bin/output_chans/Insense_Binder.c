@@ -27,11 +27,6 @@ void behaviour_Binder( BinderPNTR this ) {
 
 	// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	printString_proc(this, NULL, Construct_String0("B: Connecting sender to receiver ...\n") ) ;
-
-
-// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Connect::complete
-	channel_bind( this->s_comp->output_comp,this->r_comp->input_comp ) ;
-;
 	bool ooops;
 
 	// Make call to receive function 
@@ -67,6 +62,11 @@ void Construct_Binder0( BinderPNTR this, int _argc, void* _argv[], pthread_mutex
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Connect::complete
 	channel_bind( this->s_comp->errchan_comp,this->errchan_comp ) ;
+;
+
+
+// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Connect::complete
+	channel_bind( this->s_comp->output_comp,this->r_comp->input_comp ) ;
 ;
 	// End of sequence
 
