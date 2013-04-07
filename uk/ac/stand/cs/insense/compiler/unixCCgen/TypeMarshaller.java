@@ -683,7 +683,8 @@ public class TypeMarshaller extends Code {
 	}
 	
 	/************************ File related Methods ************************/
-	
+	private static void generateSerializerFiles() {} // not needed on unix; we have tons of memory, so marshaller implemented fully in runtime
+	/*
 	private static void generateSerializerFiles()  { 
 		try {
 			OutputFile f1 = new ImplFile( generateSerializerFileName() );
@@ -716,7 +717,7 @@ public class TypeMarshaller extends Code {
 		} catch( IOException e ) {
 			ErrorHandling.exceptionError(e, "Opening file: " + generateSerializerHeaderFileName() );
 		}
-	}
+	}*/
 
 	
 	/************************ Private Memorisation Methods ************************/
