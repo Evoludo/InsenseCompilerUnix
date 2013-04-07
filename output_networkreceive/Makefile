@@ -82,7 +82,7 @@ TARGETFLAGS = $(CFLAGS) -DAUTOSTART_ENABLE $(DALDEBUG) $(DALSMALL) $(DALSENSORS)
 PROJ=network_receive.isf
 
 APP_INCLUDES = -I $(INSENSE_RUNTIME_UNIX)
-APP_SRCFILES = struct_Ssaddr_apayload__.c Insense_NetStringPrinter.c main.c marshaller.c 
+APP_SRCFILES = struct_Ssaddr_apayload__.c Insense_NetStringPrinter.c main.c 
 APP_OBJECTFILES = $(APP_SRCFILES:.c=.o)
 # JL added, linking to main function in contiki-sky.a doesn't seem to work
 # with msp430-gcc

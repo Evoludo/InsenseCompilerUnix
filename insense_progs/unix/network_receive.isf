@@ -21,7 +21,7 @@ component NetStringPrinter presents INetStringPrinter
 
                         default:
 			{ 
-				printString("Error: unexpected data type" )
+				printString("Error: unexpected data type\n" )
 			}
 	}
 }

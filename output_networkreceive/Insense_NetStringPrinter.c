@@ -44,7 +44,7 @@ void behaviour_NetStringPrinter( NetStringPrinterPNTR this ) {
 	} 
 	else { 
 	// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
-	printString_proc(this, NULL, Construct_String0("Error: unexpected data type") ) ;
+	printString_proc(this, NULL, Construct_String0("Error: unexpected data type\n") ) ;
 	// End of sequence
 
 	}  
