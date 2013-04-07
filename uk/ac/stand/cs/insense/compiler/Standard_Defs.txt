@@ -177,5 +177,19 @@ getPublicChannels : proc() : PublicChannel[]
 getPublicChannelsOf : proc(unsigned) : PublicChannel[]
 enableInterNodeChannelRouting : proc()
 
+//// Unix defs
+// keyboard
+type IKeyboard is interface( out string output )
+Keyboard : IKeyboard
 
+// network stuff
+type NetAddress is string
+type NetPacket is struct ( NetAddress addr; any payload )
 
+type INetworkSend is interface (in NetPacket input)
+NetworkSend : INetworkSend
+
+type INetworkReceive is interface (out NetPacket output)
+NetworkReceive : INetworkReceive
+
+getNetAddress : proc():NetAddress

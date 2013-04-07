@@ -73,7 +73,7 @@
     </target>
     <target name="Compiler">
         <java classname="uk.ac.stand.cs.insense.compiler.Compiler" failonerror="true" fork="yes">
-            <arg line="insense_progs/inceos/binder_sender_receiver.isf output_chans"/>
+            <arg line="insense_progs/inceos/sendReceiveChannel.isf output_chans2"/>
             <classpath refid="InsenseCompilerUnix.classpath"/>
         </java>
     </target>

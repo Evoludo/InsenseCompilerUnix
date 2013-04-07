@@ -1,0 +1,28 @@
+type INetStringSender is interface(in string input; out NetPacket output)
+
+component NetStringSender presents INetStringSender
+{
+	i = 0
+
+	constructor()
+	{
+	}
+
+	behaviour
+	{
+		printString("Enter address to connect to:\n")
+		receive addr from input
+		npacket = new NetPacket(addr, any(i))
+		send npacket on output
+		i := i + 1
+		if i == 100 then
+		{
+			i := 0
+		}
+	}
+}
+
+
+networktest = new NetStringSender()
+connect networktest.input to Keyboard.output
+connect networktest.output to NetworkSend.input

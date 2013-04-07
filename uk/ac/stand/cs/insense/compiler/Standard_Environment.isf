@@ -21,7 +21,6 @@ radioOut = new out byte[]
 temperature = new out integer
 humidity = new out integer
 
-
-
+// unix channels
 
 

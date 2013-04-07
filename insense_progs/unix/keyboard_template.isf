@@ -1,0 +1,19 @@
+type IKeyboard is interface(out string output)
+
+component Keyboard presents IKeyboard
+{
+	constructor()
+	{
+	}
+
+	behaviour
+	{
+		buffer = ""
+		//getchar
+		send buffer on output
+		printString("Sent string on output:\n")
+		printString(buffer)
+	}
+}
+
+keyboard = new Keyboard()

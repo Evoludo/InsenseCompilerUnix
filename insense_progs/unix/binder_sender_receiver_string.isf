@@ -1,0 +1,65 @@
+
+//type ISender is interface( in bool ticks ; out integer output ; out bool errchan)
+type ISender is interface( out string output ; out bool errchan)
+type IBinder is interface ( in bool errchan )
+type IReceiver is interface ( in string input )
+
+component Sender presents ISender {
+
+	message = "ohai"
+
+			constructor(){
+	}
+
+	behaviour {
+		//receive tick from ticks
+		printString("S: sending value on output chan\n")
+		send message on output
+	}
+}
+
+
+
+component Receiver presents IReceiver {
+
+	proc printDetails(string message){
+		printString("R: Got value ")
+		printString(message)
+		printString("\n")
+	}
+
+	constructor() {
+	}
+
+	behaviour {
+		receive message from input
+		printDetails(message)
+	}
+}
+
+
+component Binder presents IBinder {
+
+	s = new Sender()
+	r = new Receiver()
+
+	constructor(){
+		//setTimer(s.ticks, 2.0, true)
+		connect s.errchan to errchan
+		connect s.output to r.input
+	}
+
+	behaviour {
+		printString("B: Connecting sender to receiver ...\n")
+		receive ooops from errchan
+		printString("B: received oops on errchan ...\n")
+	}
+
+}
+
+
+//Insense main
+
+binder = new Binder()
+
+

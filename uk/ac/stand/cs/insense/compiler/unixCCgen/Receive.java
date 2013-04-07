@@ -51,10 +51,11 @@ public class Receive extends Decl implements IReceive {
 		// Make call to receive function
 		super.append("\n"+TAB + "// Make call to receive function \n");
 		//super.append(TAB + functionCall("channel_receive", potential_component_deref + channel, AMPERSAND + variable, functionCall( "sizeof", insenseTypeToCTypeName( vtype ) ) ) + SEMI + NEWLINE); // TODO JL remove, not needed for post asynch impl
-		super.append(TAB + functionCall("channel_receive", channel, AMPERSAND + variable , "false" /* not ack after recv */) + SEMI + NEWLINE);
-		if(vtype instanceof ChannelType){
+		super.append(TAB + functionCall("channel_receive", channel, AMPERSAND + variable) + SEMI + NEWLINE);
+		// not implemented for unix runtime yet
+		/*if(vtype instanceof ChannelType){
 			super.append(TAB + functionCall("channel_adopt", variable)+ SEMI + NEWLINE);
-		}
+		}*/
 		Cgen.get_instance().findEnclosingDelcarationContainer().track_call_space(MSP430Sizes.channelReceiveCallOverhead(vtype));
 	}
 }

@@ -91,7 +91,7 @@ public class Send extends Code implements ISend {
 		} else if(fromContext == ISymbolTable.FUNCTION){
 			handler = "ex_handler";
 		}
-		super.append(functionCall("channel_send", channel, AMPERSAND + "_lvalue", handler ) + SEMI + NEWLINE);
+		super.append(functionCall("channel_send", channel, AMPERSAND + "_lvalue" ) + SEMI + NEWLINE);
 		super.append(proc_end + NEWLINE + RCB_ + NEWLINE);
 		Cgen.get_instance().findEnclosingDelcarationContainer().track_call_space(MSP430Sizes.channelSendCallOverhead(vtype));
 	}

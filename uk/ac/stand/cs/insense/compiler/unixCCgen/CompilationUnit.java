@@ -224,35 +224,19 @@ public class CompilationUnit extends ProcedureContainer implements ICode, ICompi
 	
 	private void printMain( PrintStream ps ) {
 		ps.println( GENERATED_FROM + Diagnostic.getMethodInCallChain() );
-		
-//		ps.println( "PROCESS(main_process, \"Main process\");" );		// TODO NOT NEEDED FOR INCEOS?
-//		ps.println( "AUTOSTART_PROCESSES(&main_process);" );			// TODO NOT NEEDED FOR INCEOS?
-//		ps.println( "PROCESS_THREAD(main_process, ev, data) {" );		// TODO NOT NEEDED FOR INCEOS?
-//		ps.println( TAB + "PROCESS_BEGIN();" );							// TODO NOT NEEDED FOR INCEOS?
 		ps.println( "int main( int argc, char **argv ) {" );
 		ps.println(TAB + "inceos_event_t op_status;// for exception handling");
+		
 		// set up serializers and deserializers if radio is being used
-//		ps.println("#if defined (DALRADIO) || defined (DALINTERNODECHANNEL)");
 		ps.println( TAB + functionCall( "DAL_assign", "&serialiserMap", functionCall( "Construct_StringMap", "" )) + SEMI);
 		ps.println( TAB + functionCall( "initializeSerializerFunctions", "" ) + SEMI );
-//		ps.println( "#endif /* DALRADIO */");
-//		ps.println("\tthis = &main_this_struct;\n" +
-//				"\tthis->process_pntr = PROCESS_CURRENT();\n"+ 	// TODO NOT NEEDED FOR INCEOS?
-//				"\tthis->data_struct.tag = GENERIC;\n" );
 		ps.println( TAB + functionCall( "initDALGlobalObjects" ) + SEMI );
-		ps.println( TAB + functionCall( "sem_init", "&can_exit", "0", "1" ) + SEMI);
-		ps.println( TAB + "num_threads" + EQUALS + ZERO + SEMI);
-		ps.println( TAB + functionCall( "pthread_mutex_init", "&conn_op_mutex", NULL) + SEMI);
-//		print_vtbl_initialisation( ps );			// TODO NOT NEEDED FOR INCEOS?
-		ps.println( super.toString() );
 		
-		// no longer needed with new Contiki 
-//		ps.println( TAB + "do {" );
-//		ps.println( TAB2 + "process_run();" );
-//		ps.println( TAB + "}" );
-		ps.println( TAB + functionCall("sem_wait", "&can_exit ") + SEMI );
-//		ps.println( TAB + "PROCESS_END();" );	// TODO NOT NEEDED FOR INCEOS?
-		ps.println( TAB + functionCall("component_exit") + SEMI + "// as the primordial is a component itself created by the boot code, must deleted to return the memory and space it uses");
+		// unix globals and background components
+		ps.println( TAB + functionCall( "initUnixGlobalObjects" ) + SEMI);
+		ps.println( super.toString() );
+		ps.println( TAB + functionCall("sem_wait", "&can_exit ") + SEMI);
+		ps.println( TAB + functionCall("exit", "0") + SEMI);
 		ps.println( "}" );
 	}
 }
