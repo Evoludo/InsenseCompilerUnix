@@ -1,17 +1,16 @@
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printImplIncludes
 #include "main.h"
 // TODO put remainder of impl includes here
-#include "struct_Ssaddr_apayload__.h"
-#include "union_StringPNTRint.h"
+#include "union_intfloat.h"
 
 
 #ifndef DALSMALL
-static char *file_name = "NetStringPrinter";
+static char *file_name = "Receiver";
 #endif
 
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::generateDecRef
-static void decRef_NetStringPrinter( NetStringPrinterPNTR this ) { 
+static void decRef_Receiver( ReceiverPNTR this ) { 
 	channel_unbind( this->input_comp ) ;
 	// TODO need InceOS Channel_decRef( this->input_comp ) ;
 
@@ -20,50 +19,41 @@ static void decRef_NetStringPrinter( NetStringPrinterPNTR this ) {
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printComponentFuncsImpl
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printBehaviourImpl
-void behaviour_NetStringPrinter( NetStringPrinterPNTR this ) { 
+void behaviour_Receiver( ReceiverPNTR this ) { 
 	inceos_event_t op_status;// for exception handling
 
 	while( ! this->stopped ) { 
 
 	// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
-	struct_Ssaddr_apayload___PNTR recvd = NULL;
+	AnyTypePNTR something = NULL;
 
 	// Make call to receive function 
-	channel_receive( this->input_comp,&recvd ) ;
+	channel_receive( this->input_comp,&something ) ;
 ;
 	//any project start
-	if( anyTypeIsEqual( recvd->payload,"s" ) ) { 
-		StringPNTR  message =  anyTypeGetPointerValue( recvd->payload ) ;
+	if( anyTypeIsEqual( something,"i" ) ) { 
+		int  val =  anyTypeGetIntValue( something ) ;
 	// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
-	printString_proc(this, NULL, Construct_String0("Received string from ") ) ;
-	printString_proc(this, NULL, recvd->addr ) ;
-	printString_proc(this, NULL, Construct_String0(":\n") ) ;
-	printString_proc(this, NULL, message ) ;
-	printString_proc(this, NULL, Construct_String0("\n") ) ;
+	printInt_proc(this, NULL, val ) ;
 	// End of sequence
 	} 
-	else if( anyTypeIsEqual( recvd->payload,"i" ) ) { 
-		int  message =  anyTypeGetIntValue( recvd->payload ) ;
+	else if( anyTypeIsEqual( something,"r" ) ) { 
+		float  val =  anyTypeGetRealValue( something ) ;
 	// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
-	printString_proc(this, NULL, Construct_String0("Received integer from ") ) ;
-	printString_proc(this, NULL, recvd->addr ) ;
-	printString_proc(this, NULL, Construct_String0(":\n") ) ;
-	printInt_proc(this, NULL, message ) ;
-	printString_proc(this, NULL, Construct_String0("\n") ) ;
+	printReal_proc(this, NULL, val ) ;
 	// End of sequence
 	} 
 	else { 
 	// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
-	printString_proc(this, NULL, Construct_String0("Received unexpected data type from ") ) ;
-	printString_proc(this, NULL, recvd->addr ) ;
-	printString_proc(this, NULL, Construct_String0("\n") ) ;
+	printString_proc(this, NULL, Construct_String0("???") ) ;
 	// End of sequence
 
 	}  
 	//any project end
 ;
+	printString_proc(this, NULL, Construct_String0(" received\n") ) ;
 	// End of sequence
-	DAL_decRef( recvd ) ;
+	DAL_decRef( something ) ;
 
 	} 
 	component_exit(  ) ;
@@ -72,23 +62,23 @@ void behaviour_NetStringPrinter( NetStringPrinterPNTR this ) {
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printConstructorImpls
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printConstructorGlobalInitialiser
-void NetStringPrinter_init_globals( NetStringPrinterPNTR this ) 
+void Receiver_init_globals( ReceiverPNTR this ) 
 { 
-	this->decRef = decRef_NetStringPrinter;
-	this->input_comp=channel_create( sizeof( struct_Ssaddr_apayload___PNTR  ) ,CHAN_IN ) ;
+	this->decRef = decRef_Receiver;
+	this->input_comp=channel_create( sizeof( AnyTypePNTR  ) ,CHAN_IN ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::locationInitialisers
 
 } 
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::generateCode
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::constructorFunctionDecl
-void Construct_NetStringPrinter0( NetStringPrinterPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) { 
-	NetStringPrinter_init_globals( this ) ;
+void Construct_Receiver0( ReceiverPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) { 
+	Receiver_init_globals( this ) ;
 	pthread_mutex_unlock( init ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	// End of sequence
 
-	behaviour_NetStringPrinter( this ) ;
+	behaviour_Receiver( this ) ;
 } 
 
 

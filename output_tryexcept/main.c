@@ -1,7 +1,7 @@
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.CompilationUnit::printHeaders
 #include "main.h"
-#ifndef NETSTRINGSENDER_H_
- #include "Insense_NetStringSender.h"
+#ifndef TEST2_H_
+ #include "Insense_Test2.h"
 #endif 
 
 
@@ -24,19 +24,9 @@ int main( int argc, char **argv ) {
 	initDALGlobalObjects(  ) ;
 	initUnixGlobalObjects(  ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
-	NetStringSenderPNTR networktest_glob = NULL;
-	DAL_assign(&networktest_glob , component_create( Construct_NetStringSender0, sizeof( NetStringSenderStruct ) , 122, 0, NULL ) );
+	Test2PNTR test2_glob = NULL;
+	DAL_assign(&test2_glob , component_create( Construct_Test20, sizeof( Test2Struct ) , 82, 0, NULL ) );
 	component_yield(  ) ;
-;
-
-
-// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Connect::complete
-	channel_bind( networktest_glob->input_comp,Keyboard_glob->output_comp ) ;
-;
-
-
-// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Connect::complete
-	channel_bind( networktest_glob->output_comp,NetworkSend_glob->input_comp ) ;
 ;
 	// End of sequence
 

@@ -1,33 +1,31 @@
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::print_ifdef
-#ifndef NETSTRINGPRINTER_H_
-#define NETSTRINGPRINTER_H_
+#ifndef SENDER_H_
+#define SENDER_H_
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printImplIncludes
 #include "main.h"
 // TODO put remainder of impl includes here
-#include "struct_Ssaddr_apayload__.h"
-#include "union_StringPNTRint.h"
 
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printStructDecl
-typedef struct NetStringPrinter *NetStringPrinterPNTR , NetStringPrinterStruct ;
-struct NetStringPrinter { 
+typedef struct Sender *SenderPNTR , SenderStruct ;
+struct Sender { 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printCommonDecls
-	void (*decRef)(NetStringPrinterPNTR pntr);
+	void (*decRef)(SenderPNTR pntr);
 	bool stopped;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printStructChannelDecls
-	Channel_PNTR input_comp;
+	Channel_PNTR output_comp;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::printLocationDecls
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.DeclarationContainer::locationDecls
-
+	int  i_comp;	float  r_comp;
 } ;
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printComponentFuncsDecls
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printConstructorSignatures
-extern void Construct_NetStringPrinter0( NetStringPrinterPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) ;
+extern void Construct_Sender0( SenderPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) ;
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Component::printBehaviourForwardDecl
-extern void behaviour_NetStringPrinter( NetStringPrinterPNTR this ) ;
-#endif /* NETSTRINGPRINTER_H_*/ 
+extern void behaviour_Sender( SenderPNTR this ) ;
+#endif /* SENDER_H_*/ 
 

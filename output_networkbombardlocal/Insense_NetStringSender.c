@@ -27,18 +27,10 @@ void behaviour_NetStringSender( NetStringSenderPNTR this ) {
 	while( ! this->stopped ) { 
 
 	// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
-	printString_proc(this, NULL, Construct_String0("Enter address to connect to:\n") ) ;
 	StringPNTR addr = NULL;
-
-	// Make call to receive function 
-	channel_receive( this->input_comp,&addr ) ;
-;
-	printString_proc(this, NULL, Construct_String0("Enter string to send:\n") ) ;
+	DAL_assign(&addr , Construct_String0("127.0.0.1"));
 	StringPNTR message = NULL;
-
-	// Make call to receive function 
-	channel_receive( this->input_comp,&message ) ;
-;
+	DAL_assign(&message , Construct_String0("spam"));
 	struct_Ssaddr_apayload___PNTR npacketS = NULL;
 	DAL_assign(&npacketS , construct_struct_Ssaddr_apayload__(addr, Construct_PointerAnyType0( message,"s" ) ));
 	// Make call to send op 

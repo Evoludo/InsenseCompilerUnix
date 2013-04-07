@@ -18,10 +18,19 @@ component NetStringPrinter presents INetStringPrinter
 				printString(message)
 				printString("\n")
 			}
-
+			integer:
+			{
+				printString("Received integer from ")
+				printString(recvd.addr)
+				printString(":\n")
+				printInt(message)
+				printString("\n")
+			}
                         default:
 			{ 
-				printString("Error: unexpected data type\n" )
+				printString("Received unexpected data type from ")
+				printString(recvd.addr)
+				printString("\n")
 			}
 	}
 }

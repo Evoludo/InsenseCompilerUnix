@@ -25,7 +25,7 @@ int main( int argc, char **argv ) {
 	initUnixGlobalObjects(  ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	NetStringSenderPNTR networktest_glob = NULL;
-	DAL_assign(&networktest_glob , component_create( Construct_NetStringSender0, sizeof( NetStringSenderStruct ) , 122, 0, NULL ) );
+	DAL_assign(&networktest_glob , component_create( Construct_NetStringSender0, sizeof( NetStringSenderStruct ) , 126, 0, NULL ) );
 	component_yield(  ) ;
 ;
 

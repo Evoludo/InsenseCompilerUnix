@@ -10,10 +10,8 @@ component NetStringSender presents INetStringSender
 
 	behaviour
 	{
-		printString("Enter address to connect to:\n")
-		receive addr from input
-		printString("Enter string to send:\n")
-		receive message from input
+		addr = "127.0.0.1"
+		message = "spam"
 		npacketS = new NetPacket(addr, any(message))
 		send npacketS on output
 
