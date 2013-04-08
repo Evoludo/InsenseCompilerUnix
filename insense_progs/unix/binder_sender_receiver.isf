@@ -5,10 +5,9 @@ type IBinder is interface ( in bool errchan )
 type IReceiver is interface ( in integer input )
 
 component Sender presents ISender {
-
 	number = 0
 
-			constructor(){
+	constructor(){
 	}
 
 	behaviour {
