@@ -1,3 +1,0 @@
-
-a = new integer[3][3] of 2
-i = a[0][0]

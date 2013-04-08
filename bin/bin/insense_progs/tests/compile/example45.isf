@@ -1,9 +1,0 @@
-// Tests that old syntax is not permitted
-
-component Receiver presents (in integer input) {
-	constructor() {
-	}
-	
-	behaviour {
-	}
-}
