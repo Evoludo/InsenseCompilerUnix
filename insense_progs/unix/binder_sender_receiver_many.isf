@@ -21,7 +21,10 @@ component Sender presents ISender {
 		if number % 10 == 0 then {
 			printString("S: sent another 10 values ... disconnecting\n")
 			//disconnect output
-			send true on errchan
+			if id == 1 then
+			{
+				send true on errchan
+			}
 		}
 	}
 }
@@ -76,13 +79,13 @@ component Binder presents IBinder {
 		receive ooops from errchan
 		printString("B: received oops on errchan ...\n")
 		disconnect s1.output
-//		disconnect r4.input
+		disconnect r4.input
 		connect s1.output to r1.input
-//		connect s1.output to r2.input
-//		connect s1.output to r3.input
-//		connect s2.output to r4.input
-//		connect s3.output to r4.input
-//		connect s4.output to r4.input
+		connect s1.output to r2.input
+		connect s1.output to r3.input
+		connect s2.output to r4.input
+		connect s3.output to r4.input
+		connect s4.output to r4.input
 	}
 
 }

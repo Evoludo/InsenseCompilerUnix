@@ -58,6 +58,8 @@ component Binder presents IBinder {
 		printString("B: Connecting sender to receiver ...\n")
 		receive ooops from errchan
 		printString("B: received oops on errchan ...\n")
+		disconnect s.output
+		connect s.output to r.input
 	}
 
 }

@@ -1,9 +1,0 @@
-
-fooAddr = new byte[2] of #1
-
-fooChan = new out real
-
-fooLCN = "foo"
-
-disconnect fooChan
-disconnect fooLCN on fooAddr

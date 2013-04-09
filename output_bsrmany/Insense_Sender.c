@@ -38,6 +38,7 @@ void behaviour_Sender( SenderPNTR this ) {
 	this->number_comp = this->number_comp+1;
 if( this->number_comp%10==0) { // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	printString_proc(this, NULL, Construct_String0("S: sent another 10 values ... disconnecting\n") ) ;
+if( this->id_comp==1) { // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	// Make call to send op 
 { 
 	bool  _lvalue= true;
@@ -45,6 +46,9 @@ if( this->number_comp%10==0) { // Generated from: uk.ac.stand.cs.insense.compile
 	// end of send op 
 } 
 ;
+	// End of sequence
+;
+} ;
 	// End of sequence
 ;
 } ;

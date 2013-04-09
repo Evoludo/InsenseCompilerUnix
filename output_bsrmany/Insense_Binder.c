@@ -46,8 +46,38 @@ void behaviour_Binder( BinderPNTR this ) {
 ;
 
 
+// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Disconnect::complete
+	channel_unbind( this->r4_comp->input_comp ) ;
+;
+
+
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Connect::complete
 	channel_bind( this->s1_comp->output_comp,this->r1_comp->input_comp ) ;
+;
+
+
+// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Connect::complete
+	channel_bind( this->s1_comp->output_comp,this->r2_comp->input_comp ) ;
+;
+
+
+// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Connect::complete
+	channel_bind( this->s1_comp->output_comp,this->r3_comp->input_comp ) ;
+;
+
+
+// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Connect::complete
+	channel_bind( this->s2_comp->output_comp,this->r4_comp->input_comp ) ;
+;
+
+
+// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Connect::complete
+	channel_bind( this->s3_comp->output_comp,this->r4_comp->input_comp ) ;
+;
+
+
+// Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Connect::complete
+	channel_bind( this->s4_comp->output_comp,this->r4_comp->input_comp ) ;
 ;
 	// End of sequence
 
