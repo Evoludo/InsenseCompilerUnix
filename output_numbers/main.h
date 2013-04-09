@@ -4,7 +4,7 @@
 
 #include "InsenseRuntime.h"
 #include "unix.h"
-#include "marshaller.h"
+#include "MarshallerFull.h"
 #include "setjmp.h"
 
 #ifndef NUMBERS_H_

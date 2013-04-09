@@ -31,6 +31,9 @@
         <copy includeemptydirs="false" todir="bin">
             <fileset dir=".">
                 <exclude name="**/*.java"/>
+                <exclude name="**/*.sh"/>
+                <exclude name="**/*.xml"/>
+                <exclude name="output*/"/>
                 <exclude name="src/"/>
             </fileset>
         </copy>

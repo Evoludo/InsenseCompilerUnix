@@ -80,8 +80,9 @@ void Numbers_init_globals( NumbersPNTR this )
 
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::generateCode
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Constructor::constructorFunctionDecl
-void Construct_Numbers0( NumbersPNTR this, int _argc, void* _argv[] ) { 
+void Construct_Numbers0( NumbersPNTR this, int _argc, void* _argv[], pthread_mutex_t* init ) { 
 	Numbers_init_globals( this ) ;
+	pthread_mutex_unlock( init ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	// End of sequence
 

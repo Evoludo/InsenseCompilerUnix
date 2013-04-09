@@ -22,6 +22,7 @@ int main( int argc, char **argv ) {
 	DAL_assign( &serialiserMap,Construct_StringMap(  )  ) ;
 	initializeSerializerFunctions(  ) ;
 	initDALGlobalObjects(  ) ;
+	initUnixGlobalObjects(  ) ;
 // Generated from: uk.ac.stand.cs.insense.compiler.unixCCgen.Sequence::complete
 	NumbersPNTR numbers_glob = NULL;
 	DAL_assign(&numbers_glob , component_create( Construct_Numbers0, sizeof( NumbersStruct ) , 52, 0, NULL ) );
@@ -29,6 +30,6 @@ int main( int argc, char **argv ) {
 ;
 	// End of sequence
 
-	while( true );
-	component_exit(  ) ;// as the primordial is a component itself created by the boot code, must deleted to return the memory and space it uses
+	sem_wait( &can_exit  ) ;
+	exit( 0 ) ;
 }

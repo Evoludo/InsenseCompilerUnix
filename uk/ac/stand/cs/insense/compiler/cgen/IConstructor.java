@@ -14,4 +14,5 @@ public interface IConstructor extends IDeclarationContainer {
 	public String generateCode( IProcedureContainer container );
 	public String constructorFunctionSignature();
 	public FunctionType getFt();
+	public String arrayFunctionSignature();
 }

@@ -1,0 +1,95 @@
+
+//type ISender is interface( in bool ticks ; out integer output ; out bool errchan)
+type ISender is interface( out integer output ; out bool errchan)
+type IBinder is interface ( in bool errchan )
+type IReceiver is interface ( in integer input )
+
+component Sender presents ISender {
+	number = 0
+	id = 0
+
+	constructor(integer n){
+		id := n
+	}
+
+	behaviour {
+		//receive tick from ticks
+		printInt(id)
+		printString("S: sending value on output chan\n")
+		send number on output
+		number := number + 1
+		if number % 10 == 0 then {
+			printString("S: sent another 10 values ... disconnecting\n")
+			//disconnect output
+			send true on errchan
+		}
+	}
+}
+
+
+
+component Receiver presents IReceiver {
+	id = 0
+
+	proc printDetails(integer number){
+		printString("R: Got value ")
+		printInt(number)
+		printString("\n")
+	}
+
+	constructor(integer n) {
+		id := n
+	}
+
+	behaviour {
+		receive number from input
+		printInt(id)
+		printDetails(number)
+	}
+}
+
+
+component Binder presents IBinder {
+
+	s1 = new Sender(1)
+	s2 = new Sender(2)
+	s3 = new Sender(3)
+	s4 = new Sender(4)
+	r1 = new Receiver(1)
+	r2 = new Receiver(2)
+	r3 = new Receiver(3)
+	r4 = new Receiver(4)
+
+	constructor(){
+		//setTimer(s.ticks, 2.0, true)
+		connect s1.errchan to errchan
+		connect s1.output to r1.input
+		connect s1.output to r2.input
+		connect s1.output to r3.input
+		connect s2.output to r4.input
+		connect s3.output to r4.input
+		connect s4.output to r4.input
+	}
+
+	behaviour {
+		printString("B: Connecting sender to receiver ...\n")
+		receive ooops from errchan
+		printString("B: received oops on errchan ...\n")
+		disconnect s1.output
+//		disconnect r4.input
+		connect s1.output to r1.input
+//		connect s1.output to r2.input
+//		connect s1.output to r3.input
+//		connect s2.output to r4.input
+//		connect s3.output to r4.input
+//		connect s4.output to r4.input
+	}
+
+}
+
+
+//Insense main
+
+binder = new Binder()
+
+

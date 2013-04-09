@@ -1,6 +1,6 @@
-type IKeyboard is interface(out string output)
+type IKeyboardTest is interface(in string input)
 
-component Keyboard presents IKeyboard
+component KeyboardTest presents IKeyboardTest
 {
 	constructor()
 	{
@@ -8,11 +8,12 @@ component Keyboard presents IKeyboard
 
 	behaviour
 	{
-		//getchar
-		send buffer on output
-		printString("Sent string on output:\n")
-		printString(buffer)
+		receive recvd from input
+		printString("Received string on output:\n")
+		printString(recvd)
+		printString("\n")
 	}
 }
 
-keyboard = new Keyboard()
+keyboardtest = new KeyboardTest()
+connect keyboardtest.input to Keyboard.output

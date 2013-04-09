@@ -290,6 +290,17 @@ public class Component extends ProcedureContainer implements ICode, IComponent {
 
 	}
 	*/
+	
+	private void printArrayFunctionSignatures( PrintStream ps ) {
+		ps.println( GENERATED_FROM + Diagnostic.getMethodInCallChain() );
+		int i = 0;
+		for( IConstructor cc : this.constructors ) {
+			ps.print( EXTERN_ );
+			ps.print(cc.arrayFunctionSignature());
+			ps.println( SEMI );
+		}
+		ps.println();
+	}
 
 	/**
 	 * Writes the declaration for the constructor functions to the stream
@@ -584,6 +595,7 @@ public class Component extends ProcedureContainer implements ICode, IComponent {
 			printStructDecl( ps );
 			//printCopyMacros( ps ); // JL copy macros not needed anymore, so removed, check that this is ok
 			printComponentFuncsDecls( ps ); 
+			printArrayFunctionSignatures( ps );
 			printConstructorSignatures( ps );
 			printBehaviourForwardDecl( ps );
 			printTrailers( ps );
